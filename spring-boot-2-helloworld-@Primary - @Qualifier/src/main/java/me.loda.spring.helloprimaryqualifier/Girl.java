@@ -19,25 +19,67 @@ import org.springframework.stereotype.Component;
  * @since 5/11/2019
  * Github: https://github.com/loda-kun
  */
+//@Component
+//public class Girl {
+//
+//    // Đánh dấu để Spring inject một đối tượng Outfit vào đây
+//    Outfit outfit;
+//
+//    // Spring sẽ inject outfit thông qua Constructor đầu tiên
+//    // Ngoài ra, nó sẽ tìm Bean có @Qualifier("naked") trong context để ịnject
+//    public Girl(@Qualifier("naked") Outfit outfit) {
+//        this.outfit = outfit;
+//    }
+//
+//
+//    // GET
+//    // SET
+//
+//    // Sử dụng trên method cũng được
+//    // @Autowired
+//    // public void setOutfit(Outfit outfit){
+//    //     this.outfit = outfit;
+//    // }
+//}
+
 @Component
 public class Girl {
 
-    // Đánh dấu để Spring inject một đối tượng Outfit vào đây
-    Outfit outfit;
+    //== cach 1: Đánh dấu để Spring inject một đối tượng Outfit vào đây
+//    @Autowired
+//    @Qualifier("naked")
+//    Outfit outfit;
 
+    //== cach 2:
     // Spring sẽ inject outfit thông qua Constructor đầu tiên
     // Ngoài ra, nó sẽ tìm Bean có @Qualifier("naked") trong context để ịnject
+//    Outfit outfit;
+//
+//    @Autowired
+//    public Girl(@Qualifier("naked") Outfit outfit) {
+//        System.out.println("===>>> Girl Constructor");
+//        this.outfit = outfit;
+//    }
+
+    //== cach 3
+    Outfit outfit;
+
+    @Autowired
     public Girl(@Qualifier("naked") Outfit outfit) {
+        System.out.println("===>>> Girl Constructor");
         this.outfit = outfit;
     }
 
+//    @Autowired
+//    public void setOutfit(@Qualifier("naked") Outfit outfit){
+//        System.out.println("===>>> setOutfit");
+//        this.outfit = outfit;
+//    }
 
-    // GET
-    // SET
-
-    // Sử dụng trên method cũng được
-    // @Autowired
-    // public void setOutfit(Outfit outfit){
-    //     this.outfit = outfit;
-    // }
+    @Autowired
+    @Qualifier("naked")
+    public void setOutfit(Outfit outfit){
+        System.out.println("===>>> setOutfit");
+        this.outfit = outfit;
+    }
 }
