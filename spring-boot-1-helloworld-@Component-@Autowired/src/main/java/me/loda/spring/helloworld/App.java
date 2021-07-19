@@ -32,19 +32,21 @@ public class App {
         Outfit outfit = context.getBean(Outfit.class);
 
         // In ra để xem thử nó là gì
-        System.out.println("Output Instance: " + outfit);
+        System.out.println("Outfit Instance: " + outfit);
         // xài hàm wear()
         outfit.wear();
+
+        Bikini bikini = context.getBean(Bikini.class);
+        System.out.println("Bikini Instance: " + bikini);
+        bikini.wear();
 
         Girl girl = context.getBean(Girl.class);
 
         System.out.println("Girl Instance: " + girl);
-
         System.out.println("Girl Outfit: " + girl.outfit);
-
         girl.outfit.wear();
 
         // Kiểm tra 2 đối tượng
-        System.out.println((girl.outfit == outfit));
+        System.out.println("girl.outfit == outfit ? " + (girl.outfit == outfit));
     }
 }
